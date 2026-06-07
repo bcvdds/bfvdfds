@@ -361,7 +361,7 @@
 					end 
 
 					if frame.Parent:IsA("ScreenGui") and frame.Parent.DisplayOrder ~= 999999 then 
-						library.display_orders += 1 -- shit code
+						library.display_orders += 1
 						frame.Parent.DisplayOrder = library.display_orders
 					end   
 				end
@@ -710,8 +710,6 @@
 						items.sgui.Enabled = false;
 					end)
 
-					--library:apply_theme(main_holder, "outline", "BackgroundColor3") 
-					
 					items.window_inline = library:create("Frame", {
 						Parent = items.main_holder,
 						Name = "",
@@ -953,288 +951,11 @@
 			end 
 		end 
 
-		function library:indicator() 
-			local cfg = {
-				items = {};
-			}
-
-			local items = cfg.items; do 
-				items.Window = library:create( "Frame" , {
-					Parent = sgui;
-					Name = "\0";
-					Position = dim2(0, 400, 0, 500);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(0, 322, 0, 147);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.outline
-				});	library:apply_theme(items.Window, "outline", "BackgroundColor3"); library:draggify(items.Window)
-				
-				items.InfoTitle = library:create( "TextLabel" , {
-					FontFace = library.font;
-					TextColor3 = themes.preset.text;
-					BorderColor3 = rgb(0, 0, 0);
-					Text = "Indicators";
-					Parent = items.Window;
-					Name = "\0";
-					Size = dim2(1, 0, 0, 0);
-					Position = dim2(0, 7, 0, 5);
-					BackgroundTransparency = 1;
-					TextXAlignment = Enum.TextXAlignment.Left;
-					BorderSizePixel = 0;
-					ZIndex = 5;
-					AutomaticSize = Enum.AutomaticSize.Y;
-					TextSize = 12;
-				}); 
-
-				items.Accent = library:create( "Frame" , {
-					Parent = items.Window;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.accent
-				});	library:apply_theme(items.Accent, "accent", "BackgroundColor3")
-				
-				items.Background = library:create( "Frame" , {
-					Parent = items.Accent;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.high_contrast
-				});	library:apply_theme(items.Background, "high_contrast", "BackgroundColor3")
-				
-				items.Inline = library:create( "Frame" , {
-					Parent = items.Background;
-					Name = "\0";
-					Position = dim2(0, 4, 0, 18);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -8, 1, -22);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.outline
-				});	library:apply_theme(items.Inline, "outline", "BackgroundColor3")
-				
-				items.Outline = library:create( "Frame" , {
-					Parent = items.Inline;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.inline
-				});	library:apply_theme(items.Outline, "inline", "BackgroundColor3")
-				
-				items.LowContrast = library:create( "Frame" , {
-					Parent = items.Outline;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.low_contrast
-				});	library:apply_theme(items.LowContrast, "low_contrast", "BackgroundColor3")
-				
-				items.Inline = library:create( "Frame" , {
-					Parent = items.LowContrast;
-					Name = "\0";
-					Position = dim2(0, 4, 0, 4);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -8, 1, -8);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.inline
-				});	library:apply_theme(items.Inline, "inline", "BackgroundColor3")
-				
-				items.Outline = library:create( "Frame" , {
-					Parent = items.Inline;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.outline
-				});	library:apply_theme(items.Outline, "outline", "BackgroundColor3")
-				
-				items.LowContrast = library:create( "Frame" , {
-					Parent = items.Outline;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.low_contrast
-				});	library:apply_theme(items.LowContrast, "low_contrast", "BackgroundColor3"); local image_holder = items.LowContrast;
-				
-				items.Inline = library:create( "Frame" , {
-					Parent = items.LowContrast;
-					Name = "\0";
-					Position = dim2(0, 4, 0, 4);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -8, 1, -8);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.inline
-				});	library:apply_theme(items.Inline, "inline", "BackgroundColor3")
-				
-				items.Outline = library:create( "Frame" , {
-					Parent = items.Inline;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.outline
-				});	library:apply_theme(items.Outline, "outline", "BackgroundColor3")
-				
-				items.LowContrast = library:create( "Frame" , {
-					Parent = items.Outline;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.low_contrast
-				});	library:apply_theme(items.LowContrast, "low_contrast", "BackgroundColor3")
-
-				items.InfoTitle = library:create( "TextLabel" , {
-					FontFace = library.font;
-					TextColor3 = themes.preset.text;
-					BorderColor3 = rgb(0, 0, 0);
-					Text = "Info";
-					Parent = items.Outline;
-					Name = "\0";
-					Size = dim2(1, 0, 0, 0);
-					Position = dim2(0, 7, 0, 5);
-					BackgroundTransparency = 1;
-					TextXAlignment = Enum.TextXAlignment.Left;
-					BorderSizePixel = 0;
-					ZIndex = 5;
-					AutomaticSize = Enum.AutomaticSize.Y;
-					TextSize = 12;
-				});
-
-				library:create( "UIStroke" , {
-					Parent = items.InfoTitle
-				});
-				
-				items.Accent = library:create( "Frame" , {
-					Name = "\0";
-					Parent = items.LowContrast;
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, 0, 0, 2);
-					BackgroundColor3 = themes.preset.accent;
-					BorderSizePixel = 0;
-				});	library:apply_theme(items.Accent, "accent", "BackgroundColor3");
-				
-				items.Shadow = library:create( "Frame" , {
-					AnchorPoint = vec2(0, 1);
-					Parent = items.Accent;
-					Name = "\0";
-					Position = dim2(0, 0, 1, 0);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, 0, 0, 1);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.accent;
-				}); library:apply_theme(items.Shadow, "accent", "BackgroundColor3");
-				
-				library:create( "UIGradient" , {
-					Rotation = 90;
-					Parent = items.Shadow;
-					Color = rgbseq{rgbkey(0, rgb(150, 150, 150)), rgbkey(1, rgb(150, 150, 150))}
-				});
-				
-				items.holder = library:create( "Frame" , {
-					Parent = items.LowContrast;
-					Name = "\0";
-					Position = dim2(0, 76, 0, 21);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -80, 0, 0);
-					BorderSizePixel = 0;
-				});	
-
-				library:create("UIListLayout", {
-					Parent = items.holder,
-					Padding = dim(0, 4),
-					HorizontalAlignment = Enum.HorizontalAlignment.Center,
-					SortOrder = Enum.SortOrder.LayoutOrder
-				})
-
-				items.Inline = library:create( "Frame" , {
-					Parent = image_holder;
-					Name = "\0";
-					Position = dim2(0, 10, 0, 28);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(0, 68, 0, 67);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.outline
-				});	library:apply_theme(items.Inline, "outline", "BackgroundColor3")
-				
-				items.Outline = library:create( "Frame" , {
-					Parent = items.Inline;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.inline
-				});	library:apply_theme(items.Outline, "inline", "BackgroundColor3")
-				
-				items.LowContrast = library:create( "Frame" , {
-					Parent = items.Outline;
-					Name = "\0";
-					Position = dim2(0, 1, 0, 1);
-					BorderColor3 = rgb(0, 0, 0);
-					Size = dim2(1, -2, 1, -2);
-					BorderSizePixel = 0;
-					BackgroundColor3 = themes.preset.low_contrast
-				});	library:apply_theme(items.LowContrast, "low_contrast", "BackgroundColor3")
-
-				items.Profile = library:create( "ImageLabel" , {
-					BorderColor3 = rgb(0, 0, 0);
-					Parent = items.LowContrast;
-					Image = "rbxasset://textures/ui/GuiImagePlaceholder.png";
-					BackgroundTransparency = 1;
-					Name = "\0";
-					Size = dim2(1, 0, 1, 0);
-					BorderSizePixel = 0;
-				});	
-
-				local section = setmetatable(items, library)
-				items.label = section:label({name = "Player: "})
-				items.slider = section:slider({name = "Health", custom = rgb(255, 0, 0), min = 0, max = 100, default = 50, input = true})
-				
-				library:create( "UIStroke" , {
-					Parent = items.InfoTitle
-				});            
-			end
-
-			function cfg.set_visible(bool)
-				items.Window.Visible = bool
-			end 
-
-			function cfg.change_health(int)
-				items.slider.set(int)
-			end
-
-			function cfg.change_profile(player)
-				items.label.set(string.format("Player: %s (%s)", player.Name, player.DisplayName))
-				items.Profile.Image = "https://www.roblox.com/headshot-thumbnail/image?userId=".. player.UserId .."&width=420&height=420&format=png"
-			end 
-
-			return setmetatable(cfg, library)
-		end     
-
 		function library:window(properties)
 			local window = {opened = true}            
 			local opened = {}
 			local dock_outline;
-			-- BlurEffect УДАЛЁН
-			-- local blur = library:create( "BlurEffect" , {
-			--     Parent = lighting;
-			--     Enabled = true;
-			--     Size = 15
-			-- });    
-
+			
 			library.cache = library:create("ScreenGui", {
 				Enabled = false,
 				Parent = gethui(),
@@ -1257,8 +978,6 @@
 						end
 					end
 				end
-
-				-- library:tween(blur, {Size = bool and (flags["Blur Size"] or 15) or 0})
 
 				dock_outline.Visible = bool;
 
@@ -1477,32 +1196,30 @@
 				})
 				library:apply_theme(text_holder, "outline", "BackgroundColor3")
 
-				local inline = library:create("Frame", {
+				local inline2 = library:create("Frame", {
 					Parent = text_holder,
 					Name = "",
 					Size = dim2(1, -2, 1, -2),
 					Position = dim2(0, 1, 0, 1),
 					BorderColor3 = rgb(0, 0, 0),
 					BorderSizePixel = 0,
-					--AutomaticSize = Enum.AutomaticSize.Y,
 					BackgroundColor3 = themes.preset.inline
 				})
-				library:apply_theme(inline, "inline", "BackgroundColor3")
+				library:apply_theme(inline2, "inline", "BackgroundColor3")
 				
-				local background = library:create("Frame", {
-					Parent = inline,
+				local background2 = library:create("Frame", {
+					Parent = inline2,
 					Name = "",
 					Size = dim2(1, -2, 1, -2),
 					Position = dim2(0, 1, 0, 1),
 					BorderColor3 = rgb(0, 0, 0),
 					BorderSizePixel = 0,
-					--AutomaticSize = Enum.AutomaticSize.Y,
 					BackgroundColor3 = rgb(255, 255, 255)
 				})
-				library.keybind_list = background
+				library.keybind_list = background2
 				
 				local UIGradient = library:create("UIGradient", {
-					Parent = background,
+					Parent = background2,
 					Name = "",
 					Rotation = 90,
 					Color = rgbseq{
@@ -1513,14 +1230,14 @@
 				library:apply_theme(UIGradient, "contrast", "Color") 
 				
 				library:create("UIListLayout", {
-					Parent = background,
+					Parent = background2,
 					Name = "",
 					Padding = dim(0, -1),
 					SortOrder = Enum.SortOrder.LayoutOrder
 				})
 				
 				library:create("UIPadding", {
-					Parent = background,
+					Parent = background2,
 					Name = "",
 					PaddingBottom = dim(0, 4),
 					PaddingLeft = dim(0, 5)
@@ -1568,7 +1285,7 @@
 				})
 				window["section_holder"] = section_holder
 
-				local outline = library:create("Frame", {
+				local outline2 = library:create("Frame", {
 					Parent = section_holder,
 					Name = "\0",
 					Position = dim2(0, 1, 0, 1),
@@ -1578,10 +1295,10 @@
 					BackgroundColor3 = themes.preset.outline
 				})
 				
-				library:apply_theme(outline, "outline", "BackgroundColor3") 
+				library:apply_theme(outline2, "outline", "BackgroundColor3") 
 
-				local inline = library:create("Frame", {
-					Parent = outline,
+				local inline3 = library:create("Frame", {
+					Parent = outline2,
 					Name = "\0",
 					Position = dim2(0, 1, 0, 1),
 					BorderColor3 = rgb(0, 0, 0),
@@ -1590,10 +1307,10 @@
 					BackgroundColor3 = themes.preset.inline
 				})
 				
-				library:apply_theme(inline, "inline", "BackgroundColor3") 
+				library:apply_theme(inline3, "inline", "BackgroundColor3") 
 
-				local background = library:create("Frame", {
-					Parent = inline,
+				local background3 = library:create("Frame", {
+					Parent = inline3,
 					Name = "\0",
 					Position = dim2(0, 1, 0, 1),
 					BorderColor3 = rgb(0, 0, 0),
@@ -1602,10 +1319,10 @@
 					BackgroundColor3 = rgb(255, 255, 255)
 				})
 
-				library.section_holder = background
+				library.section_holder = background3
 
 				library:create("UIPadding", {
-					Parent = background,
+					Parent = background3,
 					PaddingTop = dim(0, 4),
 					PaddingBottom = dim(0, 4),
 					PaddingRight = dim(0, 4),
@@ -1613,7 +1330,7 @@
 				})
 
 				local UIGradient = library:create("UIGradient", {
-					Parent = background,
+					Parent = background3,
 					Rotation = 90,
 					Color = rgbseq{
 						rgbkey(0, rgb(41, 41, 55)),
@@ -1688,39 +1405,34 @@
 				:colorpicker({name = "Glow", color = themes.preset.glow, callback = function(color, alpha)
 					library:update_theme("glow", color)
 				end, flag = "Glow"})
-				-- УДАЛЁН слайдер Blur Size
-				-- section:slider({name = "Blur Size", flag = "Blur Size", min = 0, max = 56, default = 15, interval = 1, callback = function(int)
-				--     if window.opened then 
-				--         blur.Size = int
-				--     end
-				-- end})
-				local section = column:section({name = "Other"})
-				section:label({name = "UI Bind"})
+				-- Blur slider полностью удален
+				local section2 = column:section({name = "Other"})
+				section2:label({name = "UI Bind"})
 				:keybind({callback = window.set_menu_visibility, key = Enum.KeyCode.Insert})
-				section:toggle({name = "Keybind List", flag = "keybind_list", callback = function(bool)
+				section2:toggle({name = "Keybind List", flag = "keybind_list", callback = function(bool)
 					library.keybind_list_frame.Visible = bool
 				end})
-				section:toggle({name = "Watermark", flag = "watermark", callback = function(bool)
+				section2:toggle({name = "Watermark", flag = "watermark", callback = function(bool)
 					watermark.set_visible(bool)
 				end})
-				section:button_holder({})
-				section:button({name = "Copy JobId", callback = function()
+				section2:button_holder({})
+				section2:button({name = "Copy JobId", callback = function()
 					setclipboard(game.JobId)
 				end})
-				section:button_holder({})
-				section:button({name = "Copy GameID", callback = function()
+				section2:button_holder({})
+				section2:button({name = "Copy GameID", callback = function()
 					setclipboard(game.GameId)
 				end})
-				section:button_holder({})
-				section:button({name = "Copy Join Script", callback = function()
+				section2:button_holder({})
+				section2:button({name = "Copy Join Script", callback = function()
 					setclipboard('game:GetService("TeleportService"):TeleportToPlaceInstance(' .. game.PlaceId .. ', "' .. game.JobId .. '", game.Players.LocalPlayer)')
 				end})
-				section:button_holder({})
-				section:button({name = "Rejoin", callback = function()
+				section2:button_holder({})
+				section2:button({name = "Rejoin", callback = function()
 					game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, lp)
 				end})
-				section:button_holder({})
-				section:button({name = "Join New Server", callback = function()
+				section2:button_holder({})
+				section2:button({name = "Join New Server", callback = function()
 					local apiRequest = game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
 					local data = apiRequest.data[random(1, #apiRequest.data)]
 						
@@ -1728,7 +1440,7 @@
 						game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, data.id)
 					end 
 				end})
-				section:slider({name = "Max Players", flag = "max_players", min = 0, max = 40, default = 15, interval = 1})
+				section2:slider({name = "Max Players", flag = "max_players", min = 0, max = 40, default = 15, interval = 1})
 			-- 
 
 			-- cfg holder
@@ -1786,46 +1498,8 @@
 						for _, connection in library.connections do 
 							connection:Disconnect() 
 						end
-
-						-- blur:Destroy() -- УДАЛЁН
 					end})
 			-- 
-					
-			-- ESP Preview - ПОЛНОСТЬЮ УДАЛЁН
-			-- [[
-			-- local holder = library:panel({
-			--     name = "ESP Preview", 
-			--     anchor_point = vec2(0, 0),
-			--     size = dim2(0, 300, 0, 325),
-			--     position = dim2(0, style.items.main_holder.AbsolutePosition.X, 0, style.items.main_holder.AbsolutePosition.Y + style.items.main_holder.AbsoluteSize.Y + 2),
-			--     image = "rbxassetid://77684377836328",
-			-- })  
-			-- 
-			-- local items = holder.items
-			-- 
-			-- local column = setmetatable(items, library):column() 
-			-- window.esp_section = column:section({name = "Main"})
-			-- ]]
-
-			-- playerlist - ПОЛНОСТЬЮ УДАЛЁН (опционально, можно оставить)
-			-- [[
-			-- local holder = library:panel({
-			--     name = "Playerlist", 
-			--     anchor_point = vec2(0, 0),
-			--     size = dim2(0, 529, 0, 445),
-			--     position = dim2(0, main_window.items.main_holder.AbsolutePosition.X - 531, 0, main_window.items.main_holder.AbsolutePosition.Y),
-			--     image = "rbxassetid://107070078834415",
-			-- })  
-			-- 
-			-- local items = holder.items
-			-- 
-			-- local column = setmetatable(items, library):column() 
-			-- local section = column:section({name = "Playerlist"})
-			-- local playerlist = section:playerlist({})
-			-- section:dropdown({name = "Priority", items = {"Enemy", "Priority", "Neutral", "Friendly"}, default = "Neutral", flag = "PLAYERLIST_DROPDOWN", callback = function(text)
-			--     library.prioritize(text)
-			-- end})
-			-- ]]
 
 			return setmetatable(window, library)
 		end
@@ -1929,15 +1603,10 @@
 				watermark_outline.Visible = bool
 			end 
 
-
 			cfg.change_text(cfg.default)
 
 			return cfg 
-
-		end 
-
-		-- function library:esp_preview(properties) -- ПОЛНОСТЬЮ УДАЛЁН
-		-- end
+		end
 
 		function library:refresh_notifications()  	
 			for _, notif in next, library.notifications do 
@@ -2053,7 +1722,7 @@
 				})
 
 				local index = #library.notifications + 1
-				library.notifications[index] =watermark_outline
+				library.notifications[index] = watermark_outline
 
 				library:refresh_notifications()
 
@@ -2086,11 +1755,6 @@
 				watermark_outline:Destroy()
 			end)    
 		end 
-
-		-- Остальные функции библиотеки (tab, column, section, slider, toggle, colorpicker, keybind, dropdown, list, textbox, button_holder, button, label, playerlist) остаются без изменений
-		-- Они не влияют на FPS так сильно как ESP Preview и BlurEffect
-
-return library, themes;
 
 		function library:tab(options)	
 			local cfg = {
@@ -2200,7 +1864,7 @@ return library, themes;
 				}
 				
 				local button = library.current_tab[1] 
-				button.Size = dim2(1, -2, 1, 0) -- ENABLED
+				button.Size = dim2(1, -2, 1, 0)
 				button:FindFirstChildOfClass("UIGradient").Rotation = -90
 				button:FindFirstChildOfClass("TextLabel").TextColor3 = themes.preset.accent 
 
@@ -3050,7 +2714,7 @@ return library, themes;
 			local cfg = {
 				name = options.name or "Color", 
 				flag = options.flag or tostring(2^789),
-				color = options.color or color(1, 1, 1), -- Default to white color if not provided
+				color = options.color or color(1, 1, 1),
 				alpha = options.alpha or 1,
 				callback = options.callback or function() end,
 				right_holder = self.right_holder,
@@ -3959,8 +3623,6 @@ return library, themes;
 					end
 				end
 
-
-				-- ok bro its 30 april2025.. what is this code from october 2024 💀💀
 				hold_button.MouseButton1Click:Connect(function()
 					cfg.set_mode("hold") 
 					cfg.set_visible(false)
@@ -4506,7 +4168,6 @@ return library, themes;
 
 				scale = options.size or 232, 
 				items = options.items or {"1", "2", "3"}, 
-				-- order = options.order or 1, 
 				placeholdertext = options.placeholder or options.placeholdertext or "search here...",
 				visible = options.visible or true,
 
@@ -4570,7 +4231,7 @@ return library, themes;
 					Size = dim2(1, -27, 1, cfg.scale),
 					BorderSizePixel = 0,
 					BackgroundColor3 = themes.preset.outline
-				}) library:apply_theme(main_holder, "outline", "BackgroundColor3") 
+				}) library:apply_theme(list, "outline", "BackgroundColor3") 
 				
 				local inline = library:create("Frame", {
 					Parent = list,
@@ -5358,31 +5019,6 @@ return library, themes;
 				})
 				library:apply_theme(player_name, "text", "TextColor3") 
 				library:apply_theme(player_name, "accent", "TextColor3") 
-								
-				-- local TextLabel = library:create("TextLabel", {
-				--     Parent = TextButton,
-				--     Name = "",
-				--     FontFace = library.font,
-				--     TextColor3 = themes.preset.text,
-				--     BorderColor3 = rgb(0, 0, 0),
-				--     Text = "None",
-				--     BackgroundTransparency = 1,
-				--     TextXAlignment = Enum.TextXAlignment.Left,
-				--     BorderSizePixel = 0,
-				--     AutomaticSize = Enum.AutomaticSize.Y,
-				--     TextSize = 12,
-				--     BackgroundColor3 = rgb(255, 255, 255)
-				-- })
-								
-				-- local Frame = library:create("Frame", {
-				--     Parent = TextLabel,
-				--     Name = "",
-				--     Position = dim2(0, -10, 0, 0),
-				--     BorderColor3 = rgb(0, 0, 0),
-				--     Size = dim2(0, 1, 0, 12),
-				--     BorderSizePixel = 0,
-				--     BackgroundColor3 = themes.preset.outline
-				-- }) library:apply_theme(main_holder, "outline", "BackgroundColor3") 
 				
 				local priority_text = library:create("TextLabel", {
 					Parent = TextButton,
@@ -5438,7 +5074,6 @@ return library, themes;
 				path.line = line 
 				path.priority = "Neutral"
 				path.priority_text = priority_text
-				-- library.selected_player = players[tostring(player)]
 				
 				TextButton.MouseButton1Click:Connect(function()
 					if player_name == lp.Name then 
@@ -5525,4 +5160,4 @@ return library, themes;
 	-- 
 -- 
 
-return library, themes; 
+return library, themes;
